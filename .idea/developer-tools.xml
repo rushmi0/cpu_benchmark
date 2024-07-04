@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DeveloperToolsToolWindowSettingsV1" lastSelectedContentNodeId="notes">
+    <developerToolsConfigurations>
+      <developerToolConfiguration developerToolId="notes" id="c927f388-f7da-430e-9472-4827b975e9b4" name="Workbench">
+        <properties>
+          <property key="test" type="INPUT" value="kotlin.String|&#10;&#10;&#10;&#10;#include &lt;stdio.h&gt;&#10;#include &lt;stdbool.h&gt;&#10;#include &quot;src/proof_of_work.h&quot;&#10;&#10;int main() {&#10;    const char* hex = &quot;0000005b0fc51e70b66db99ba1708b1a1b008c30db35d19d35146b3e09756029&quot;;&#10;    long target = 24;&#10;&#10;&#10;    bool is_valid = check_proof_of_work(hex, target);&#10;    if (is_valid) {&#10;        printf(&quot;Proof of Work is valid.\n&quot;);&#10;    } else {&#10;        printf(&quot;Proof of Work is invalid.\n&quot;);&#10;    }&#10;&#10;    return 0;&#10;}&#10;&#10;&#10;&#10;//&#10;// Created by rushmi0 on 6/29/24.&#10;//&#10;&#10;#include &lt;stdbool.h&gt;&#10;#include &lt;stdio.h&gt;&#10;#include &lt;stdlib.h&gt;&#10;#include &lt;string.h&gt;&#10;#include &lt;stdint.h&gt;&#10;&#10;long count_leading_zero_bits(uint8_t byte) {&#10;    long count = 0;&#10;    for (int i = 7; i &gt;= 0; i--) {&#10;        if ((byte &amp; (1 &lt;&lt; i)) == 0) {&#10;            count++;&#10;        } else {&#10;            break;&#10;        }&#10;    }&#10;    return count;&#10;}&#10;&#10;long difficulty(const char* hex) {&#10;    size_t len = strlen(hex) / 2;&#10;    uint8_t* digest = (uint8_t*)malloc(len);&#10;&#10;    for (size_t i = 0; i &lt; len; i++) {&#10;        sscanf(hex + 2 * i, &quot;%2hhx&quot;, &amp;digest[i]);&#10;    }&#10;&#10;    long diff = 256 - len * 8 + count_leading_zero_bits(digest[0]);&#10;    free(digest);&#10;    return diff;&#10;}&#10;&#10;bool check_proof_of_work(const char* hex, long difficultyTarget) {&#10;    return difficulty(hex) &gt;= difficultyTarget;&#10;}&#10;&#10;&#10;//&#10;// Created by rushmi0 on 6/29/24.&#10;//&#10;&#10;#ifndef PROOF_OF_WORK_H&#10;#define PROOF_OF_WORK_H&#10;&#10;#include &lt;stdint.h&gt;&#10;#include &lt;stdbool.h&gt;&#10;&#10;long count_leading_zero_bits(uint8_t byte);&#10;long difficulty(const char* hex);&#10;bool check_proof_of_work(const char* hex, long difficultyTarget);&#10;&#10;&#10;#endif //PROOF_OF_WORK_H&#10;" />
+        </properties>
+      </developerToolConfiguration>
+    </developerToolsConfigurations>
+  </component>
+</project>

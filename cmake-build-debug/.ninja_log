@@ -1,0 +1,7 @@
+# ninja log v6
+1	25	1719635349486961426	CMakeFiles/cpu_benchmark.dir/main.c.o	b585672db6fac53d
+1	30	1719635349486961426	CMakeFiles/cpu_benchmark.dir/src/proof_of_work.c.o	f872a9098bf22e4a
+30	44	1719635349515961370	cpu_benchmark	b98a39175a7e9876
+1	23	1719639190137383136	CMakeFiles/cpu_benchmark.dir/main.c.o	b585672db6fac53d
+2	29	1719639190138383134	CMakeFiles/cpu_benchmark.dir/src/proof_of_work.c.o	f872a9098bf22e4a
+29	53	1719639190165383077	cpu_benchmark	b98a39175a7e9876
